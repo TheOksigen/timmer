@@ -25,6 +25,48 @@
 		button:hover {
 			box-shadow: 10px 10px 10px black;
 		}
+
+		p#p {
+			color: black;
+			font-family: monospace;
+			font-weight: 900;
+			font-size: 3rem;
+			margin: 20px;
+		}
+
+		#div {
+			margin: 20px;
+		}
+
+		@media screen and (max-width: 768px) {
+			button {
+				font-size: 1.5rem;
+				padding: 15px;
+			}
+
+			p#p {
+				font-size: 2rem;
+			}
+
+			#div p {
+				font-size: 1rem;
+			}
+		}
+
+		@media screen and (max-width: 480px) {
+			button {
+				font-size: 1.2rem;
+				padding: 10px;
+			}
+
+			p#p {
+				font-size: 1.5rem;
+			}
+
+			#div p {
+				font-size: 0.8rem;
+			}
+		}
 	</style>
 </head>
 
@@ -67,7 +109,7 @@
 					startt.style.color = "green";
 					clearInterval(interval);
 				}
-			} 
+			}
 			else if (a == "z") {
 				x++;
 				div.innerHTML += `<p style="margin: 0;background-color:${(x % 2 !== 0) ? "black" : "white"}; color: ${(x % 2 !== 0) ? "white" : "black"};" >${x}=>${String(min).padStart(2, "0")}:${String(sec).padStart(2, "0")}:${String(msec).padStart(2, '0')} </p>`;
