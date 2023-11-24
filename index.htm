@@ -67,10 +67,11 @@
 					startt.style.color = "green";
 					clearInterval(interval);
 				}
-			} else if (a == "z") {
-				x++;
-				div.innerHTML += `<p style="margin: 0;background-color:${(x % 2 !== 0) ? "black" : "white"}; color: ${(x % 2 !== 0) ? "white" : "black"};" >${x}=>${String(min).padStart(2, "0")}:${String(sec).padStart(2, "0")}:${String(msec).padStart(2, '0')} </p>`;
-			}
+			} 
+			//else if (a == "z") {
+			//	x++;
+			//	div.innerHTML += `<p style="margin: 0;background-color:${(x % 2 !== 0) ? "black" : "white"}; color: ${(x % 2 !== 0) ? "white" : "black"};" >${x}=>${String(min).padStart(2, "0")}:${String(sec).padStart(2, "0")}:${String(msec).padStart(2, '0')} </p>`;
+			//}
 		}
 	</script>
 </body>
