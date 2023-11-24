@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		* {
+			margin: 20px;
+			padding: 0;
+			box-sizing: border-box;
+		}
+
+		button {
+			margin: 20px;
+			padding: 20px;
+			font-weight: bolder;
+			font-size: 2rem;
+			border: 1px solid black;
+			transition: .4s;
+			cursor: pointer;
+		}
+
+		button:hover {
+			box-shadow: 10px 10px 10px black;
+		}
+	</style>
+</head>
+
+<body>
+	<p id="p" style="color: black; font-family: monospace; font-weight: 900; font-size: 3rem;">00:00:00</p>
+	<button onclick="start('y')" id="startt">Start</button>
+	<button onclick="start('z')">Secanse</button>
+	<p id="div"></p>
+
+	<script>
+		let msec = 0, sec = 0, min = 25, x = 0, interval;
+
+		let start = (a) => {
+			if (a == "y") {
+				if (startt.innerHTML == "Start") {
+					startt.innerHTML = "Stop";
+					startt.style.color = "red";
+					interval = setInterval(() => {
+						msec--;
+						if (msec < 0) {
+							sec--;
+							msec = 99;
+						}
+						if (sec < 0) {
+							min--;
+							sec = 59;
+						}
+						if (min < 0) {
+							clearInterval(interval);
+							min = 0;
+							sec = 0;
+							msec = 0;
+							startt.innerHTML = "Start";
+							startt.style.color = "green";
+						}
+						p.innerHTML = `${String(min).padStart(2, "0")}:${String(sec).padStart(2, "0")}:${String(msec).padStart(2, '0')}`;
+					}, 10);
+				} else if (startt.innerHTML == "Stop") {
+					startt.innerHTML = "Start";
+					startt.style.color = "green";
+					clearInterval(interval);
+				}
+			} else if (a == "z") {
+				x++;
+				div.innerHTML += `<p style="margin: 0;background-color:${(x % 2 !== 0) ? "black" : "white"}; color: ${(x % 2 !== 0) ? "white" : "black"};" >${x}=>${String(min).padStart(2, "0")}:${String(sec).padStart(2, "0")}:${String(msec).padStart(2, '0')} </p>`;
+			}
+		}
+	</script>
+</body>
+
+</html>
